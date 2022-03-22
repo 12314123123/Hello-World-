@@ -1,5 +1,6 @@
-#include《stdoi》
-public stacit coid mian（)              {
-print（hELO W0lder);
-return true;
-                                       }
+#include<stdio.h>
+int main()
+{
+  printf("hello world!");
+  return 0;
+}
