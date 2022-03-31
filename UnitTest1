@@ -1,0 +1,32 @@
+#include "pch.h"
+#include "CppUnitTest.h"
+#include"../Project1/源.cpp"
+
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+namespace UnitTest1
+{
+	TEST_CLASS(UnitTest1)
+	{
+	public:
+		
+		TEST_METHOD(TestMethod1)
+		{
+            std::string expected = "Hello World!\n";
+
+            std::stringstream buffer;
+            std::streambuf* sbuf = std::cout.rdbuf();
+            std::cout.rdbuf(buffer.rdbuf());
+
+            int result = main();
+
+       
+            std::cout.rdbuf(sbuf);
+            std::cout << "std original buffer: \n";
+            std::cout << buffer.get();
+
+
+            Assert::AreEqual(expected, buffer.str());
+		}
+	};
+}
