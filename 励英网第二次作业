@@ -1,0 +1,169 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+#define pi 3.1415926
+class Maths                                                    //四则混合运算类
+{
+public:
+	double add(double a, double b);                            //加法
+	double sub(double a, double b);                            //减法
+	double mul(double a, double b);                            //乘法
+	double div(double a, double b);                            //除法
+};
+class ex                                                       //开方平方类
+{
+public:
+	double squ(double a);                                      //开方运算函数
+	double pow(double a);                                      //平方运算函数
+};
+class tf//三角函数类
+{
+public:
+	double msin(double v);                                     //计算正弦函数
+	double mcos(double v);                                     //计算余弦函数
+	double mtan(double v);                                     //计算正切函数
+
+};
+double Maths::add(double a, double b)
+{
+	double res;
+	res=a+b;
+	return res;
+}
+ 
+double Maths::sub(double a, double b)
+{
+	double res;
+	res=a-b;
+	return res;
+}
+ 
+double Maths::mul(double a, double b)
+{
+	double res;
+	res=a*b;
+	return res;
+}
+ 
+double Maths::div(double a, double b)
+{
+	double res;
+	res=a/b;
+	return res;
+}
+double ex::squ(double a)
+{
+	double res;
+	res=sqrt(a);
+	return res;
+}
+double ex::pow(double a)
+{
+	double res;
+	res=a*a;
+	return res;
+}
+double tf::msin(double v)
+{
+	double n,res;
+	n=pi*v/180.0;
+	res=sin(n);
+	return res;
+}
+double tf::mcos(double v)
+{
+	double n,res;
+	n=n=pi*v/180.0;
+	res=cos(n);
+	return res;
+}
+double tf::mtan(double v)
+{
+	double n,res;
+	n=n=pi*v/180.0;
+	res=tan(n);
+	return res;
+}
+int main()
+{
+	int n;
+	double res = 0;
+	double a,b,v,d;
+	char s;	
+	Maths m;
+	ex u;
+	tf w;
+	    cout<<"************科学计算器的设计与实验************************\n";
+		cout << "**********输入1进行四则混合运算,输入2进行开方运算,输入3进行平方运算,输入4进行三角函数运算*****************\n";
+		cin>>n;
+		if(n==1)
+		{
+			cout << "输入算式:";
+			cin>>a;
+			while(1)
+			{
+				cin>>s;
+				if(s=='=')
+				{
+					cout<<"计算结果:"<<a;
+					break;
+				}
+				else
+					cin>>b;
+				switch(s){
+	                      case'+':{a=m.add(a,b);break;}
+	                      case'-':{a=m.sub(a,b);break;}
+	                      case'*':{a=m.mul(a,b);break;}
+						  case'/':{a=m.div(a,b);break;}
+	                     }
+
+			}
+		}
+		else if(n==2)
+		{
+			cout<<"输入数值:";
+			cin>>a;
+			a=u.squ(a);
+			cout<<"输出结果:";
+			cout<<a;
+				
+		}
+		else if(n==3)
+		{
+			cout<<"输入数值:";
+		    cin>>a;
+			a=u.pow(a);
+			cout<<"输出结果:";
+			cout<<a;
+		}
+		else if(n==4)
+		{
+			cout<<"输入1得出正弦结果,输入2得出余弦结果 输入3得出正切且结果为一个0~360度之间的数代表角度\n";
+			cin>>v;
+			cin>>d;
+			if(d==1)
+			{
+				v=w.msin(v);
+				cout<<v;
+			}
+			if(d==2)
+			{
+				v=w.mcos(v);
+				cout<<v;
+			}
+			if(d==3)
+			{
+				v=w.mtan(v);
+				cout<<v;
+			}
+		}
+	system("pause");
+	return 0;
+}
+
+
+
+
+
+
+
